@@ -41,7 +41,14 @@ class TutApp extends Component {
        const doesShow = this.state.showPersons;
        this.setState({showPersons: !doesShow});
      }
-      
+     
+     deletePersonHandler = (indexPerson)=>{
+       console.log(">>deletePersonHandler:indexPerson="+indexPerson);
+       const persons = this.state.persons;
+       persons.splice(indexPerson, 1);
+       this.setState({persons:persons});
+     }
+
   render() {
     console.log(">>render");
     const style = {
@@ -59,8 +66,12 @@ class TutApp extends Component {
 
       persons = (
         <div>
-        {this.state.persons.map(person =>{
-          return <Person name = {person.name} age = {person.age} />
+        {this.state.persons.map((person, index) =>{
+          return <Person 
+                    click = {()=>this.deletePersonHandler(index)} 
+                    name = {person.name} 
+                    age = {person.age} 
+                  />
         })}
       </div>
       );
