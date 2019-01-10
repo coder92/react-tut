@@ -1,0 +1,5 @@
+.Sidebar{
+    align-items: flex-start;
+    flex-direction: row;
+    background-color: blueviolet;
+}

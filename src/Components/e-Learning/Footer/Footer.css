@@ -1,0 +1,8 @@
+.Footer{
+    position: relative;
+    background-position-y: bottom;
+    display: flex;
+    text-justify: auto;
+    background-color: #282c34;
+    color: antiquewhite;
+}
