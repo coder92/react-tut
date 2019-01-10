@@ -2,29 +2,28 @@ import React, { Component } from 'react'
 import Person from './Person/Person';
 
 class TutApp extends Component {
-  
     state = {
+      persons: [
+        { name: 'Max', age: 28 },
+        { name: 'Manu', age: 29 },
+        { name: 'Stephanie', age: 26 }
+      ],
+      otherState: 'some other value'
+    }
+  
+    switchNameHandler = (newName) => {
+      // console.log('Was clicked!');
+      // DON'T DO THIS: this.state.persons[0].name = 'Maximilian';
+      this.setState( {
         persons: [
-          { name: 'Max', age: 28 },
+          { name: newName, age: 28 },
           { name: 'Manu', age: 29 },
-          { name: 'Stephanie', age: 26 }
-        ],
-        otherState: 'some other value'
-      }
+          { name: 'Stephanie', age: 27 }
+        ]
+      } )
+    }
     
-      switchNameHandler = (newName) => {
-        // console.log('Was clicked!');
-        // DON'T DO THIS: this.state.persons[0].name = 'Maximilian';
-        this.setState( {
-          persons: [
-            { name: newName, age: 28 },
-            { name: 'Manu', age: 29 },
-            { name: 'Stephanie', age: 27 }
-          ]
-        } )
-      }
-    
-      nameChangedHandler = (event) => {
+    nameChangedHandler = (event) => {
         this.setState( {
           persons: [
             { name: 'Max', age: 28 },
@@ -32,13 +31,23 @@ class TutApp extends Component {
             { name: 'Stephanie', age: 26 }
           ]
         } )
-      }
+      }        
       
   render() {
+    const style = {
+        backgroundColor: 'white',
+        font: 'inherit',
+        border: '1px solid blue',
+        padding: '8px',
+        cursor: 'pointer'
+      };  
     return (
       <div className="TutApp">
        <p>Hii you inside th Tut App</p>
-       <button onClick={() => this.switchNameHandler('Maximilian!!')}>Switch Name</button>
+       
+       <button 
+          style={style}
+          onClick={() => this.switchNameHandler('Maximilian!!')}>Switch Name</button>
         <Person 
           name={this.state.persons[0].name} 
           age={this.state.persons[0].age} />
