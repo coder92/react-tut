@@ -1,0 +1,12 @@
+
+----style-----
+style.backgroundColor = 'red';
+ background-color: red;
+ font-weight: bold;
+ array.join(' ');
+ ------------------------
+ installing radium 
+ for hovering effect and other inline css properties
+ npm install --save radium
+ -------------------------
+ 
